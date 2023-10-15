@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { getmethod, deleteMethod } from '../apiinstance/apiinstance';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-export default function TaskList({ setFlag, editClickedHanlder, debounceHanlder2 ,data2,refetch}) {
+export default function TaskList({ setFlag, editClickedHanlder, debounceHanlder2 ,datafetcher,refetch}) {
    
     const deleteTaskHanlder = async (idfilter) => {
         try {
@@ -37,7 +37,7 @@ export default function TaskList({ setFlag, editClickedHanlder, debounceHanlder2
     }
     
     const onClickHanlderedit = (Id) => {
-        const filterData = data2?.taskList?.filter(elem => elem.Id === Id)
+        const filterData = datafetcher?.taskList?.filter(elem => elem.Id === Id)
         setFlag(true);
         editClickedHanlder(Id, filterData,refetch);
         // refetch()
@@ -49,7 +49,7 @@ export default function TaskList({ setFlag, editClickedHanlder, debounceHanlder2
 
         <div className="container py-2 ">
             
-            {data2?.taskList?.map((elem, index) => {
+            {datafetcher?.taskList?.map((elem, index) => {
                 return (
                     <div
                         className="row border rounded shadow p-3 mb-3 bg-white rounded  p-2"
