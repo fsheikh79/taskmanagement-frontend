@@ -165,7 +165,7 @@ function Register() {
 
   useEffect(() => {
     if (flag) {
-      navigate('/', { replace: true });
+      navigate('/login', { replace: true });
     }
   }, [flag]);
  
